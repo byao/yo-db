@@ -1,11 +1,11 @@
 Description
 ===========
 
-Simple Chef cookbook that wraps [database] cookbook to simplify create actions. Instead of writing custom wrapper cookbook for database actions, this cookbook takes configuration instead and its recipe uses [database] providers
+Simple Chef cookbook that wraps [database](https://github.com/opscode-cookbooks/database) cookbook to simplify create actions. Instead of writing custom wrapper cookbook for database actions, this cookbook takes configuration instead and its recipe uses database providers
 
 Supported databases:
 
-* postgresql
+* [postgresql](https://github.com/hw-cookbooks/postgresql)
 
 Supported actions:
 
