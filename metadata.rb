@@ -11,3 +11,4 @@ recipe            'yo-db::postgresql', 'Wraps database cookbook to perform db ac
 
 depends           'postgresql', '>= 3.0.0'
 depends           'database', '>= 2.0.0'
+depends           'postgis', '>= 0.3.0'

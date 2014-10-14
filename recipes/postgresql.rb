@@ -1,6 +1,7 @@
 
 include_recipe 'postgresql'
 include_recipe 'postgresql::server'
+include_recipe 'postgis::default' if node['postgresql']['postgis'] == true
 include_recipe 'database::postgresql'
 
 connection_defaults = {
@@ -23,10 +24,12 @@ users.each do |user|
   end
 end
 
+default_db_template = node['postgresql']['postgis'] == true ? node['postgis']['template_name'] : 'DEFAULT'
+
 databases.each do |db|
   postgresql_database db['name'] do
     connection postgresql_connection_info
-    template          db['template'] || 'DEFAULT'
+    template          db['template'] || default_db_template
     encoding          db['encoding'] || 'utf8'
     tablespace        db['tablespace'] || 'DEFAULT'
     connection_limit  db['connection_limit'] || '-1'
